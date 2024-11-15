@@ -2,8 +2,9 @@
   "name": "server",
   "version": "1.0.0",
   "main": "index.js",
+  "type": "module",
   "scripts": {
-    "test": "jest --detectOpenHandles"
+    "test": "NODE_OPTIONS=--experimental-vm-modules jest --detectOpenHandles"
   },
   "keywords": [],
   "author": "",
