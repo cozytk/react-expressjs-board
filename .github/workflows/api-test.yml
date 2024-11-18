@@ -18,19 +18,20 @@ jobs:
 
     steps:
       - uses: actions/checkout@v4
+        # 소스 코드를 체크아웃합니다.
       - name: Use Node.js
         uses: actions/setup-node@v4
         with:
           node-version: "18.x"
+        # Node.js를 설정합니다.
 
       - name: Install dependencies
         run: |
           cd packages/server
           npm install
+        # 의존성을 설치합니다.
 
       - name: Run tests
         run: |
           cd packages/server
           npm test
-        env:
-          MONGODB_URI: mongodb://localhost:27017/test

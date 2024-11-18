@@ -3,6 +3,15 @@ import app from "../index.js";
 import mongoose from "mongoose";
 import User from "../models/User.js";
 
+// 환경 변수 검증 추가
+if (process.env.NODE_ENV !== "test") {
+  throw new Error("Tests must be run in test environment");
+}
+
+if (!process.env.MONGODB_URI.includes("localhost")) {
+  throw new Error("Tests must use localhost database");
+}
+
 beforeAll(async () => {
   // 테스트 전에 테스트용 DB에 연결
   await mongoose.connect(process.env.MONGODB_URI);
